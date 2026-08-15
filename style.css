@@ -1,0 +1,261 @@
+:root {
+  --bg: #0f1115;
+  --card: #1a1d24;
+  --text: #f4f5f7;
+  --muted: #a8b0bd;
+  --accent: #7c5cff;
+  --accent-hover: #9378ff;
+  --border: #2a2f3a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(circle at top, #2a2150 0%, transparent 42%),
+    var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+.app {
+  width: 100%;
+  max-width: 560px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #12141a;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+#plan-editor {
+  min-height: 280px;
+  resize: vertical;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+#plan-title {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+
+.meta {
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+ol {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+li {
+  color: var(--text);
+  line-height: 1.5;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.presets .preset-btn {
+  min-width: 0;
+}
+
+.preset-btn.is-active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.preset-btn.is-active:hover {
+  background: var(--accent-hover);
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+button.secondary:hover {
+  background: #232833;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.project-item h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.project-item .meta {
+  margin-bottom: 12px;
+}
+
+.project-item .actions button {
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+
+.checklist {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.check-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.check-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+
+.checklist-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+  margin: -8px 0 16px;
+}
+
+.checklist-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+}
