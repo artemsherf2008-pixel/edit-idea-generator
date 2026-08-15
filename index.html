@@ -1,519 +1,80 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edit Planner</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+<section class="card presets-card">
+  <p class="label">Быстрый старт</p>
 
-<body>
-  <main class="app">
+  <h2 class="presets-title">Выбери формат</h2>
 
-    <header class="header">
-      <p class="eyebrow">ДЛЯ ВИДЕОМОНТАЖА</p>
+  <p class="presets-subtitle">
+    Готовые настройки для самых популярных типов монтажа
+  </p>
 
-      <h1>Edit Planner</h1>
+  <div class="presets">
 
-      <p class="subtitle">
-        Укажи формат, тему и длительность — получи пошаговый план монтажа.
-      </p>
-    </header>
-
-
-    <!-- МОИ ПРОЕКТЫ -->
-
-    <section id="projects" class="card">
-      <p class="label">Мои проекты</p>
-
-      <p id="projects-empty" class="meta">
-        Пока нет сохранённых проектов.
-      </p>
-
-      <ul id="projects-list" class="project-list"></ul>
-    </section>
-
-
-    <!-- БЫСТРЫЕ ПРЕСЕТЫ -->
-
-    <section class="card presets-card">
-
-      <div class="presets-header">
-
-        <div>
-          <p class="label">Быстрые пресеты</p>
-
-          <p class="presets-subtitle">
-            Начни монтаж с готового формата
-          </p>
-        </div>
-
-        <span class="presets-badge">
-          QUICK START
-        </span>
-
-      </div>
-
-
-      <div class="presets-grid">
-
-
-        <!-- REELS 30 -->
-
-        <button
-          type="button"
-          class="preset-card preset-btn"
-          data-format="shorts"
-          data-duration="30"
-        >
-
-          <span class="preset-icon">
-            ▶
-          </span>
-
-          <span class="preset-content">
-
-            <strong>
-              Reels / Shorts
-            </strong>
-
-            <small>
-              30 секунд · 9:16
-            </small>
-
-          </span>
-
-          <span class="preset-arrow">
-            ↗
-          </span>
-
-        </button>
-
-
-        <!-- REELS 60 -->
-
-        <button
-          type="button"
-          class="preset-card preset-btn"
-          data-format="shorts"
-          data-duration="60"
-        >
-
-          <span class="preset-icon">
-            ◉
-          </span>
-
-          <span class="preset-content">
-
-            <strong>
-              Reels / Shorts
-            </strong>
-
-            <small>
-              60 секунд · 9:16
-            </small>
-
-          </span>
-
-          <span class="preset-arrow">
-            ↗
-          </span>
-
-        </button>
-
-
-        <!-- YOUTUBE -->
-
-        <button
-          type="button"
-          class="preset-card preset-btn"
-          data-format="youtube"
-          data-duration="60"
-        >
-
-          <span class="preset-icon">
-            ▷
-          </span>
-
-          <span class="preset-content">
-
-            <strong>
-              YouTube
-            </strong>
-
-            <small>
-              60 секунд · 16:9
-            </small>
-
-          </span>
-
-          <span class="preset-arrow">
-            ↗
-          </span>
-
-        </button>
-
-
-        <!-- MUSIC -->
-
-        <button
-          type="button"
-          class="preset-card preset-btn"
-          data-format="music"
-          data-duration="30"
-        >
-
-          <span class="preset-icon">
-            ♫
-          </span>
-
-          <span class="preset-content">
-
-            <strong>
-              Music Edit
-            </strong>
-
-            <small>
-              30 секунд · Beat Sync
-            </small>
-
-          </span>
-
-          <span class="preset-arrow">
-            ↗
-          </span>
-
-        </button>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- ФОРМА -->
-
-    <form id="planner-form" class="card form-card">
-
-      <label>
-
-        Формат видео
-
-        <select
-          id="format"
-          name="format"
-          required
-        >
-
-          <option value="shorts">
-            Вертикальный ролик (Shorts / Reels / TikTok)
-          </option>
-
-          <option value="youtube">
-            Горизонтальный ролик (YouTube)
-          </option>
-
-          <option value="music">
-            Музыкальный эдит
-          </option>
-
-          <option value="teaser">
-            Тизер / трейлер
-          </option>
-
-        </select>
-
-      </label>
-
-
-      <label>
-
-        Тема
-
-        <input
-          id="theme"
-          name="theme"
-          type="text"
-          placeholder="Например: утренняя рутина"
-          required
-          maxlength="80"
-        />
-
-      </label>
-
-
-      <label>
-
-        Длительность (секунды)
-
-        <input
-          id="duration"
-          name="duration"
-          type="number"
-          min="8"
-          max="600"
-          value="30"
-          required
-        />
-
-      </label>
-
-
-      <button
-        id="generate-btn"
-        type="submit"
-      >
-        Составить план
-      </button>
-
-    </form>
-
-
-    <!-- РЕЗУЛЬТАТ -->
-
-    <section
-      id="result"
-      class="card result-card"
-      hidden
-      aria-live="polite"
+    <button
+      type="button"
+      class="preset-card preset-btn"
+      data-format="shorts"
+      data-duration="30"
     >
-
-      <p class="label">
-        План монтажа
-      </p>
-
-
-      <h2 id="plan-title"></h2>
-
-      <p id="plan-meta" class="meta"></p>
-
-
-      <ol id="plan-steps"></ol>
-
-
-      <textarea
-        id="plan-editor"
-        hidden
-      ></textarea>
-
-
-      <!-- ОСНОВНЫЕ КНОПКИ -->
-
-      <div
-        id="plan-actions"
-        class="actions"
-      >
-
-        <button
-          id="reroll-btn"
-          type="button"
-          class="secondary"
-        >
-          Новый план
-        </button>
-
-
-        <button
-          id="copy-btn"
-          type="button"
-          class="secondary"
-        >
-          Скопировать план
-        </button>
-
-
-        <button
-          id="export-btn"
-          type="button"
-          class="secondary"
-        >
-          Экспортировать
-        </button>
-
-
-        <button
-          id="edit-btn"
-          type="button"
-          class="secondary"
-        >
-          Редактировать
-        </button>
-
-
-        <button
-          id="save-btn"
-          type="button"
-          class="secondary"
-        >
-          Сохранить проект
-        </button>
-
-      </div>
-
-
-      <!-- РЕДАКТИРОВАНИЕ -->
-
-      <div
-        id="edit-actions"
-        class="actions"
-        hidden
-      >
-
-        <button
-          id="save-edits-btn"
-          type="button"
-        >
-          Сохранить изменения
-        </button>
-
-
-        <button
-          id="cancel-edits-btn"
-          type="button"
-          class="secondary"
-        >
-          Отмена
-        </button>
-
-      </div>
-
-
-      <!-- ЧЕК-ЛИСТ -->
-
-      <div class="checklist">
-
-        <p class="label">
-          Чек-лист монтажа
-        </p>
-
-
-        <p
-          id="checklist-progress"
-          class="meta"
-        >
-          0 из 6 готово · 0%
-        </p>
-
-
-        <div
-          class="checklist-bar"
-          aria-hidden="true"
-        >
-
-          <span id="checklist-bar"></span>
-
-        </div>
-
-
-        <ul class="check-list">
-
-
-          <li>
-
-            <label class="check-item">
-
-              <input
-                type="checkbox"
-                data-check="sources"
-              />
-
-              Отсортировал исходники
-
-            </label>
-
-          </li>
-
-
-          <li>
-
-            <label class="check-item">
-
-              <input
-                type="checkbox"
-                data-check="rough"
-              />
-
-              Собрал черновой монтаж
-
-            </label>
-
-          </li>
-
-
-          <li>
-
-            <label class="check-item">
-
-              <input
-                type="checkbox"
-                data-check="sound"
-              />
-
-              Настроил звук
-
-            </label>
-
-          </li>
-
-
-          <li>
-
-            <label class="check-item">
-
-              <input
-                type="checkbox"
-                data-check="text"
-              />
-
-              Добавил текст/субтитры
-
-            </label>
-
-          </li>
-
-
-          <li>
-
-            <label class="check-item">
-
-              <input
-                type="checkbox"
-                data-check="color"
-              />
-
-              Проверил цвет
-
-            </label>
-
-          </li>
-
-
-          <li>
-
-            <label class="check-item">
-
-              <input
-                type="checkbox"
-                data-check="review"
-              />
-
-              Проверил ролик перед экспортом
-
-            </label>
-
-          </li>
-
-
-        </ul>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <script src="script.js"></script>
-
-</body>
-</html>
+      <span class="preset-icon">⚡</span>
+
+      <span class="preset-content">
+        <strong>Reels / Shorts</strong>
+        <small>Динамичный вертикальный ролик</small>
+      </span>
+
+      <span class="preset-time">30 сек</span>
+    </button>
+
+
+    <button
+      type="button"
+      class="preset-card preset-btn"
+      data-format="shorts"
+      data-duration="60"
+    >
+      <span class="preset-icon">🔥</span>
+
+      <span class="preset-content">
+        <strong>Reels / Shorts</strong>
+        <small>Расширенный вертикальный ролик</small>
+      </span>
+
+      <span class="preset-time">60 сек</span>
+    </button>
+
+
+    <button
+      type="button"
+      class="preset-card preset-btn"
+      data-format="youtube"
+      data-duration="60"
+    >
+      <span class="preset-icon">▶</span>
+
+      <span class="preset-content">
+        <strong>YouTube</strong>
+        <small>Горизонтальный ролик</small>
+      </span>
+
+      <span class="preset-time">60 сек</span>
+    </button>
+
+
+    <button
+      type="button"
+      class="preset-card preset-btn"
+      data-format="music"
+      data-duration="30"
+    >
+      <span class="preset-icon">♫</span>
+
+      <span class="preset-content">
+        <strong>Music Edit</strong>
+        <small>Монтаж под музыку и бит</small>
+      </span>
+
+      <span class="preset-time">30 сек</span>
+    </button>
+
+  </div>
+</section>
