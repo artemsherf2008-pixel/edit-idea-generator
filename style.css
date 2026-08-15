@@ -5,14 +5,16 @@
 :root {
   --bg: #08090c;
   --card: rgba(19, 21, 27, 0.82);
-  --card-hover: rgba(25, 28, 36, 0.95);
+  --card-hover: rgba(28, 30, 36, 0.95);
   --border: rgba(255, 255, 255, 0.09);
-  --border-hover: rgba(255, 255, 255, 0.18);
+  --border-hover: rgba(255, 255, 255, 0.2);
+
   --text: #f5f5f7;
   --muted: #9297a3;
+
   --accent: #8b5cf6;
-  --accent-light: #a78bfa;
-  --accent-soft: rgba(139, 92, 246, 0.14);
+  --accent-light: #b19cff;
+
   --green: #34d399;
   --red: #fb7185;
 }
@@ -24,7 +26,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+
   color: var(--text);
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -37,18 +41,20 @@ body {
   background:
     radial-gradient(
       circle at 50% -10%,
-      rgba(139, 92, 246, 0.18),
+      rgba(255, 255, 255, 0.055),
       transparent 35%
     ),
     radial-gradient(
       circle at 0% 50%,
-      rgba(59, 130, 246, 0.08),
+      rgba(255, 255, 255, 0.025),
       transparent 30%
     ),
     var(--bg);
 }
 
-/* ---------- MAIN ---------- */
+/* =========================
+   MAIN
+========================= */
 
 .app {
   width: min(920px, calc(100% - 32px));
@@ -56,7 +62,9 @@ body {
   padding: 70px 0 100px;
 }
 
-/* ---------- HEADER ---------- */
+/* =========================
+   HEADER
+========================= */
 
 .header {
   text-align: center;
@@ -71,12 +79,13 @@ body {
   margin: 0 0 16px;
   padding: 7px 12px;
 
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
 
-  background: rgba(139, 92, 246, 0.08);
+  background: rgba(255, 255, 255, 0.035);
 
-  color: var(--accent-light);
+  color: #b7bbc5;
+
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -85,11 +94,15 @@ body {
 
 .eyebrow::before {
   content: "";
+
   width: 6px;
   height: 6px;
+
   border-radius: 50%;
-  background: var(--accent-light);
-  box-shadow: 0 0 12px var(--accent);
+
+  background: #d8dbe2;
+
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 h1 {
@@ -97,31 +110,38 @@ h1 {
 
   font-size: clamp(42px, 7vw, 72px);
   line-height: 0.95;
+
   letter-spacing: -0.055em;
   font-weight: 800;
 
-  background: linear-gradient(
-    135deg,
-    #ffffff 15%,
-    #d8d2ff 55%,
-    #9b7cff 100%
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 15%,
+      #dcdde2 55%,
+      #999da8 100%
+    );
 
   -webkit-background-clip: text;
   background-clip: text;
+
   color: transparent;
 }
 
 .subtitle {
   max-width: 600px;
+
   margin: 20px auto 0;
 
   color: var(--muted);
+
   font-size: 16px;
   line-height: 1.6;
 }
 
-/* ---------- CARDS ---------- */
+/* =========================
+   CARDS
+========================= */
 
 .card {
   position: relative;
@@ -152,11 +172,12 @@ h1 {
 
   pointer-events: none;
 
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.035),
-    transparent 35%
-  );
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.025),
+      transparent 35%
+    );
 }
 
 .label {
@@ -165,55 +186,64 @@ h1 {
   margin: 0 0 14px;
 
   color: #d5d7df;
+
   font-size: 11px;
   font-weight: 800;
+
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .meta {
   color: var(--muted);
+
   font-size: 13px;
 }
 
-/* ---------- PRESETS ---------- */
+/* =========================
+   PRESETS
+========================= */
 
 .presets-card {
   padding: 26px;
 }
 
 .presets-card > .label {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .presets {
   display: grid;
+
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+
+  gap: 20px;
 }
+
+/* =========================
+   PRESET BUTTON
+========================= */
 
 .preset-btn {
   position: relative;
 
   min-height: 126px;
+
   padding: 20px;
 
   display: flex;
   flex-direction: column;
+
   align-items: flex-start;
   justify-content: center;
 
   text-align: left;
 
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
   border-radius: 18px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.055),
-      rgba(255, 255, 255, 0.018)
-    );
+  background: rgba(255, 255, 255, 0.025);
 
   color: var(--text);
 
@@ -233,17 +263,17 @@ h1 {
 
   position: absolute;
 
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
 
-  top: -60px;
-  right: -50px;
+  top: -70px;
+  right: -60px;
 
   border-radius: 50%;
 
-  background: rgba(139, 92, 246, 0.16);
+  background: transparent;
 
-  filter: blur(20px);
+  pointer-events: none;
 
   transition: transform 0.3s ease;
 }
@@ -256,7 +286,8 @@ h1 {
   right: 18px;
   bottom: 16px;
 
-  color: #696d78;
+  color: #666a74;
+
   font-size: 18px;
 
   transition:
@@ -267,60 +298,55 @@ h1 {
 .preset-btn:hover {
   transform: translateY(-4px);
 
-  border-color: rgba(139, 92, 246, 0.42);
+  border-color: rgba(255, 255, 255, 0.18);
 
-  background: var(--card-hover);
+  background: rgba(255, 255, 255, 0.045);
 
   box-shadow:
-    0 14px 35px rgba(0, 0, 0, 0.28),
-    0 0 35px rgba(139, 92, 246, 0.08);
+    0 14px 35px rgba(0, 0, 0, 0.28);
 }
 
 .preset-btn:hover::before {
-  transform: scale(1.4);
+  transform: scale(1.3);
 }
 
 .preset-btn:hover::after {
-  color: var(--accent-light);
+  color: #d6d8de;
+
   transform: translateX(4px);
 }
 
 .preset-btn.is-active {
-  border-color: rgba(139, 92, 246, 0.7);
+  border-color: rgba(255, 255, 255, 0.28);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(139, 92, 246, 0.18),
-      rgba(139, 92, 246, 0.06)
-    );
+  background: rgba(255, 255, 255, 0.06);
 
   box-shadow:
-    0 0 0 1px rgba(139, 92, 246, 0.08),
-    0 14px 40px rgba(139, 92, 246, 0.12);
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .preset-btn.is-active::after {
-  color: var(--accent-light);
+  color: #ffffff;
 }
 
-/* Название пресета */
-
-.preset-btn::selection {
-  background: transparent;
-}
-
-/* ---------- FORM ---------- */
+/* =========================
+   FORM
+========================= */
 
 .form-card {
   display: flex;
+
   flex-direction: column;
+
   gap: 18px;
 }
 
 .form-card label {
   display: flex;
+
   flex-direction: column;
+
   gap: 9px;
 
   color: #d9dbe2;
@@ -335,6 +361,7 @@ textarea {
   width: 100%;
 
   border: 1px solid var(--border);
+
   border-radius: 14px;
 
   background: rgba(255, 255, 255, 0.045);
@@ -354,6 +381,7 @@ textarea {
 input,
 select {
   height: 50px;
+
   padding: 0 15px;
 }
 
@@ -364,20 +392,28 @@ input::placeholder {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: rgba(139, 92, 246, 0.65);
+  border-color: rgba(255, 255, 255, 0.25);
 
   background: rgba(255, 255, 255, 0.065);
 
   box-shadow:
-    0 0 0 4px rgba(139, 92, 246, 0.09);
+    0 0 0 4px rgba(255, 255, 255, 0.04);
 }
 
 select {
   appearance: none;
 
   background-image:
-    linear-gradient(45deg, transparent 50%, #858996 50%),
-    linear-gradient(135deg, #858996 50%, transparent 50%);
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      #858996 50%
+    ),
+    linear-gradient(
+      135deg,
+      #858996 50%,
+      transparent 50%
+    );
 
   background-position:
     calc(100% - 18px) 21px,
@@ -394,16 +430,21 @@ select {
 
 option {
   background: #171920;
+
   color: white;
 }
 
-/* ---------- BUTTONS ---------- */
+/* =========================
+   BUTTONS
+========================= */
 
 button {
   border: 0;
+
   border-radius: 14px;
 
   min-height: 48px;
+
   padding: 0 18px;
 
   color: white;
@@ -411,18 +452,21 @@ button {
   background:
     linear-gradient(
       135deg,
-      #8b5cf6,
-      #6d45d8
+      #eeeeee,
+      #c9cbd0
     );
 
+  color: #111216;
+
   font-family: inherit;
+
   font-size: 14px;
   font-weight: 700;
 
   cursor: pointer;
 
   box-shadow:
-    0 8px 25px rgba(139, 92, 246, 0.2);
+    0 8px 25px rgba(0, 0, 0, 0.2);
 
   transition:
     transform 0.18s ease,
@@ -432,10 +476,11 @@ button {
 
 button:hover {
   transform: translateY(-2px);
-  filter: brightness(1.08);
+
+  filter: brightness(1.06);
 
   box-shadow:
-    0 12px 30px rgba(139, 92, 246, 0.28);
+    0 12px 30px rgba(0, 0, 0, 0.28);
 }
 
 button:active {
@@ -443,7 +488,7 @@ button:active {
 }
 
 button.secondary {
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(255, 255, 255, 0.045);
 
   border: 1px solid var(--border);
 
@@ -453,18 +498,22 @@ button.secondary {
 }
 
 button.secondary:hover {
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.075);
 
   border-color: var(--border-hover);
 
   box-shadow: none;
 }
 
-/* ---------- ACTIONS ---------- */
+/* =========================
+   ACTIONS
+========================= */
 
 .actions {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 10px;
 }
 
@@ -472,7 +521,9 @@ button.secondary:hover {
   min-height: 44px;
 }
 
-/* ---------- RESULT ---------- */
+/* =========================
+   RESULT
+========================= */
 
 .result-card {
   overflow: hidden;
@@ -484,6 +535,7 @@ button.secondary:hover {
   margin: 0 0 8px;
 
   font-size: 28px;
+
   letter-spacing: -0.03em;
 }
 
@@ -495,6 +547,7 @@ button.secondary:hover {
   position: relative;
 
   margin: 0;
+
   padding-left: 28px;
 
   counter-reset: plan;
@@ -504,9 +557,11 @@ button.secondary:hover {
   position: relative;
 
   margin-bottom: 10px;
+
   padding: 15px 16px;
 
   border: 1px solid rgba(255, 255, 255, 0.055);
+
   border-radius: 14px;
 
   background: rgba(255, 255, 255, 0.025);
@@ -514,6 +569,7 @@ button.secondary:hover {
   color: #d7d9e0;
 
   font-size: 14px;
+
   line-height: 1.55;
 
   transition:
@@ -523,15 +579,19 @@ button.secondary:hover {
 
 #plan-steps li:hover {
   background: rgba(255, 255, 255, 0.045);
+
   border-color: rgba(255, 255, 255, 0.1);
 }
 
 #plan-steps li::marker {
-  color: var(--accent-light);
+  color: #d0d2d8;
+
   font-weight: 800;
 }
 
-/* ---------- EDITOR ---------- */
+/* =========================
+   EDITOR
+========================= */
 
 #plan-editor {
   min-height: 400px;
@@ -541,15 +601,19 @@ button.secondary:hover {
   resize: vertical;
 
   font-size: 14px;
+
   line-height: 1.6;
 }
 
-/* ---------- CHECKLIST ---------- */
+/* =========================
+   CHECKLIST
+========================= */
 
 .checklist {
   position: relative;
 
   margin-top: 30px;
+
   padding-top: 26px;
 
   border-top: 1px solid var(--border);
@@ -575,6 +639,7 @@ button.secondary:hover {
   display: block;
 
   width: 0;
+
   height: 100%;
 
   border-radius: inherit;
@@ -582,12 +647,12 @@ button.secondary:hover {
   background:
     linear-gradient(
       90deg,
-      #6d45d8,
-      #a78bfa
+      #777b84,
+      #e1e2e5
     );
 
   box-shadow:
-    0 0 15px rgba(139, 92, 246, 0.45);
+    0 0 15px rgba(255, 255, 255, 0.15);
 
   transition: width 0.3s ease;
 }
@@ -597,9 +662,10 @@ button.secondary:hover {
 
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 9px;
+  gap: 10px;
 
   margin: 0;
+
   padding: 0;
 
   list-style: none;
@@ -607,13 +673,17 @@ button.secondary:hover {
 
 .check-item {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
 
   min-height: 48px;
+
   padding: 12px 14px;
 
   border: 1px solid var(--border);
+
   border-radius: 13px;
 
   background: rgba(255, 255, 255, 0.025);
@@ -631,6 +701,7 @@ button.secondary:hover {
 
 .check-item:hover {
   background: rgba(255, 255, 255, 0.05);
+
   border-color: var(--border-hover);
 }
 
@@ -640,16 +711,20 @@ button.secondary:hover {
 
   margin: 0;
 
-  accent-color: var(--accent);
+  accent-color: #d5d7dc;
 }
 
-/* ---------- PROJECTS ---------- */
+/* =========================
+   PROJECTS
+========================= */
 
 .project-list {
   display: grid;
+
   gap: 10px;
 
   margin: 0;
+
   padding: 0;
 
   list-style: none;
@@ -659,6 +734,7 @@ button.secondary:hover {
   padding: 17px;
 
   border: 1px solid var(--border);
+
   border-radius: 16px;
 
   background: rgba(255, 255, 255, 0.025);
@@ -691,17 +767,22 @@ button.secondary:hover {
   margin-top: 8px;
 }
 
-/* ---------- HIDDEN ---------- */
+/* =========================
+   HIDDEN
+========================= */
 
 [hidden] {
   display: none !important;
 }
 
-/* ---------- MOBILE ---------- */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 650px) {
   .app {
     width: min(100% - 20px, 920px);
+
     padding-top: 42px;
   }
 
@@ -725,6 +806,8 @@ button.secondary:hover {
 
   .presets {
     grid-template-columns: 1fr;
+
+    gap: 14px;
   }
 
   .preset-btn {
@@ -748,16 +831,20 @@ button.secondary:hover {
   }
 }
 
-/* ---------- SMALL ANIMATION ---------- */
+/* =========================
+   ANIMATION
+========================= */
 
 @keyframes fadeUp {
   from {
     opacity: 0;
+
     transform: translateY(8px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 }
